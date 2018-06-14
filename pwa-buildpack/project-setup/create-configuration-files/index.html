@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Create configuration files | Magento PWA Documentation</title>
+	<meta name="description" content="Everything you need to build a Magento PWA.">
+
+	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
+	<link rel="stylesheet" href="/pwa-devdocs/assets/css/print.css" media="print"/>
+
+	<link rel="stylesheet" href="/pwa-devdocs/builds/css/main.css" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<script>
+  var baseUrl = "/pwa-devdocs";
+  var algolia = {
+    id : "E642SEDTHL",
+    index:  "pwa-devdocs",
+    key:  "d2d0f33ab73e291ef8d88d8b565e754c"
+  };
+</script>
+
+
+
+
+
+<!-- Hotjar Tracking Code for https://magento-research.github.io/pwa-devdocs/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:829386,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66243208-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66243208-1');
+</script>
+
+
+
+
+
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/">
+
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
+	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="57x57" href="https://magento.com/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="72x72" href="https://magento.com/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="https://magento.com/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="114x114" href="https://magento.com/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="https://magento.com/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="144x144" href="https://magento.com/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="152x152" href="https://magento.com/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://magento.com/apple-touch-icon-180x180.png">
+
+</head>
+<body class="layout-default">
+
+	<header class="site-header">
+
+		<nav class="site-nav">
+
+  <div class="menu-btn">
+    <a id="menu-btn" class="menu-trigger menu-icon" href="#nav-main" aria-haspopup="true" aria-controls="nav-main"></a>
+  </div>
+
+  <div class="nav-container">
+
+    <a class="logo" href="/pwa-devdocs/">
+      <img src="/pwa-devdocs/assets/i/m-logo.svg" alt="">
+      <img src="/pwa-devdocs/assets/i/magento-logo.svg" alt="Magento" class="magento-logo" />
+      <span class="site-logo">PWA Docs</span>
+    </a>
+
+    <div id="nav-main" class="nav-main-wrap" aria-labelledby="menu-btn">
+      
+
+      <!-- Main Navigation -->
+<ul class="nav-main" role="menubar">
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/technologies/overview/">Overview</a>
+  </li>
+  
+
+  
+  <li class="menuitem current">
+      <a href="/pwa-devdocs/pwa-buildpack/">PWA Buildpack</a>
+  </li>
+  
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/peregrine/">UI Components</a>
+  </li>
+  
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/venia-pwa-concept/">Venia Theme</a>
+  </li>
+  
+
+</ul>
+
+    </div>
+
+    <div class="search-btn">
+      <a class="search-trigger search-icon" href="#"></a>
+    </div>
+
+    <form class="quick-search" action="/pwa-devdocs/search/" method="get" novalidate="novalidate">
+      <input type="search" name="q" placeholder="Search" />
+      <a href="#" class="quick-search-close">&times;</a>
+    </form>
+
+  </div>
+</nav><!-- .site-nav -->
+<div class="nav-main-fader"></div>
+
+
+	</header>
+
+	<div class="global-wrapper">
+
+		<div class="message-banner">
+  This is the pre-release documentation site for the Magento PWA project. To provide feedback or contribute content, check out the <a href="https://github.com/magento-research/pwa-devdocs">pwa-devdocs</a> repository.
+</div>
+
+
+
+		<div class="main-container">
+			<a id="main-content"></a>
+
+
+<div class="content-container">
+
+	<!-- sidebar -->
+<aside class="sidebar">
+    <a href="#" class="toc-toggler">Table of Contents</a>
+    <div class="sidebar-wrapper">
+
+      
+
+
+
+
+
+<div class="menu-section">
+    <div class="toc-entry"><h4 class="guide-title">PWA Buildpack</h4></div>
+
+    <ul class="table-of-contents">
+    
+        <li >
+            
+            <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
+            
+
+            
+        </li>
+    
+        <li >
+            
+            <a href="/pwa-devdocs/pwa-buildpack/project-setup/" class=" parent">Project setup tutorial</a>
+            
+
+            
+            <ul>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/" class=" ">Create initial theme files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/" class=" ">Install project dependencies</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/" class=" ">Link project to the Magento backend</a>
+                    
+                </li>
+            
+                <li class="active">
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/" class=" parent">Create configuration files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/" class=" ">Create a simple peregrine app</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li >
+            
+            <span>Tools reference</span>
+            
+
+            
+            <ul>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/layout-loader/" class=" ">magento-layout-loader</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/magento-resolver/" class=" ">MagentoResolver</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/" class=" ">MagentoRootComponentsPlugin</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/object-types/" class=" ">Object Types</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/" class=" ">PWADevServer</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/" class=" ">ServiceWorkerPlugin</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li >
+            
+            <a href="/pwa-devdocs/pwa-buildpack/troubleshooting/" class=" ">Troubleshooting</a>
+            
+
+            
+        </li>
+    
+    </ul>
+</div>
+
+
+    </div>
+</aside>
+<!-- /sidebar -->
+
+
+	<section class="content">
+		<div class="content-wrap">
+			<!-- page-header -->
+<section class="page-intro">
+	<nav class="breadcrumbs">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/pwa-devdocs/">Home</a></li>
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/pwa-buildpack/">
+        PWA Buildpack
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/">
+        Project setup tutorial
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item active">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/">
+        Create configuration files
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  </ol>
+</nav>
+
+	<h1 class="page-heading">Create configuration files</h1>
+</section>
+
+			<p>In the <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/">previous topic</a>, you linked your project to the Magento backend store.
+In this topic, you will create the configuration files for your development environment.</p>
+
+<h2 id="create-the-babel-configuration-file">Create the Babel configuration file</h2>
+
+<p>Create a <code class="highlighter-rouge">.babelrc</code> file in your theme’s root directory with the following content:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"plugins"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"syntax-jsx"</span><span class="p">,</span>
+        <span class="s2">"transform-class-properties"</span><span class="p">,</span>
+        <span class="s2">"transform-object-rest-spread"</span><span class="p">,</span>
+        <span class="s2">"transform-react-jsx"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This configuration installs the following <a href="https://babeljs.io/">Babel</a> plugins:</p>
+
+<ul>
+  <li>
+    <p><a href="https://babeljs.io/docs/plugins/syntax-jsx"><code class="highlighter-rouge">syntax-jsx</code></a> and <a href="https://babeljs.io/docs/plugins/transform-react-jsx"><code class="highlighter-rouge">transform-react-jsx</code></a> - Transform <a href="https://facebook.github.io/jsx/">JSX</a> code into backwards-compatible JavaScript. 
+JSX allows you to write React components using a syntax structure similar to HTML.</p>
+
+    <p>See <a href="https://reactjs.org/docs/introducing-jsx.html">Introducing JSX</a> for more information.</p>
+  </li>
+  <li><a href="https://babeljs.io/docs/plugins/transform-class-properties/"><code class="highlighter-rouge">transform-class-properties</code></a> - Transforms class properties and lets you use the following syntax:
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Example</span> <span class="p">{</span>
+  <span class="nx">anInstanceProperty</span> <span class="o">=</span> <span class="mi">52</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li><a href="https://babeljs.io/docs/plugins/transform-object-rest-spread/"><code class="highlighter-rouge">transform-object-rest-spread</code></a> - Transforms the rest and spread properties for objects to let you use the following syntax:
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">defaultConfig</span><span class="p">,</span> <span class="p">...</span><span class="nx">passedConfig</span> <span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>In general, these plugins provide convenience and produce cleaner code in your project.</p>
+
+<h2 id="create-the-local-environment-variables-file">Create the local environment variables file</h2>
+
+<p>Create a <code class="highlighter-rouge">.env</code> file and assign values to the following environment variables:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">MAGENTO_BACKEND_DOMAIN</code> - Your local Magento store’s host and port.</li>
+  <li><code class="highlighter-rouge">MAGENTO_BACKEND_PUBLIC_PATH</code> - PWA files are served from root during development, but
+  this environment variable can later be used to simulate a deployed static path.</li>
+  <li><code class="highlighter-rouge">SERVICE_WORKER_FILE_NAME</code> - Set this value to <code class="highlighter-rouge">"sw.js"</code>.</li>
+</ul>
+
+<p>Your file should look like the following:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MAGENTO_BACKEND_DOMAIN=https://localhost.magento:8008
+
+MAGENTO_BACKEND_PUBLIC_PATH=/
+
+SERVICE_WORKER_FILE_NAME="sw.js"
+</code></pre></div></div>
+
+<h2 id="create-the-webpack-configuration-file">Create the webpack configuration file</h2>
+
+<p>Create a <code class="highlighter-rouge">webpack.config.js</code> file in your theme’s root directory.
+This file exports a configuration object that tells Webpack how to build your theme.</p>
+
+<p>Webpack configuration is a complicated topic, so the following sections explain what each piece does in the configuration file.
+To see the fully assembled file, see the example <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/webpack-config-example/">webpack.config.js</a>.</p>
+
+<h3 id="import-environment-variables">Import environment variables</h3>
+
+<p>At the top of the webpack.config.js file add the following:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">(</span><span class="s1">'dotenv'</span><span class="p">).</span><span class="nx">config</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>This imports the the contents of the <code class="highlighter-rouge">.env</code> file as environment variables using the <code class="highlighter-rouge">dotenv</code> module.
+These environment variables are accessed using the <code class="highlighter-rouge">process.env</code> global object.</p>
+
+<p>For example, the following code outputs the value of the <code class="highlighter-rouge">MAGENTO_BACKEND_DOMAIN</code> environment variable:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MAGENTO_BACKEND_DOMAIN</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="import-webpack-and-pwa-buildpack-libraries">Import Webpack and pwa-buildpack libraries</h3>
+
+<p>Append the following content to <code class="highlighter-rouge">webpack.config.js</code> to import the Webpack and pwa-buildpack libraries:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'webpack'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="p">{</span>
+    <span class="na">WebpackTools</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nx">MagentoRootComponentsPlugin</span><span class="p">,</span>
+        <span class="nx">ServiceWorkerPlugin</span><span class="p">,</span>
+        <span class="nx">MagentoResolver</span><span class="p">,</span>
+        <span class="nx">PWADevServer</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@magento/pwa-buildpack'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="define-paths-to-theme-resources">Define paths to theme resources</h3>
+
+<p>Add the following content to <code class="highlighter-rouge">webpack.config.js</code> to define the paths to your theme resources:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">themePaths</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">src</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'src'</span><span class="p">),</span>
+    <span class="na">assets</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'web'</span><span class="p">),</span>
+    <span class="na">output</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'web/js'</span><span class="p">),</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>This snippet uses the <code class="highlighter-rouge">path</code> module to format and normalize the file paths.
+It also uses the special Node variable <code class="highlighter-rouge">__dirname</code> because it always resolves to the directory of the current executing script file.</p>
+
+<p>The locations specified in the snippet are the standard locations of source code, static assets, and build output in a <a href="/pwa-devdocs/peregrine/">Peregrine</a> app.</p>
+
+<h3 id="export-the-webpack-configuration-object">Export the Webpack configuration object</h3>
+
+<p>Append the following content to webpack.config.js to export the configuration object for Webpack:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">async</span> <span class="kd">function</span><span class="p">(</span><span class="nx">env</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">context</span><span class="p">:</span> <span class="nx">__dirname</span><span class="p">,</span> <span class="c1">// Node global for the running script's directory</span>
+        <span class="na">entry</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">client</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">themePaths</span><span class="p">.</span><span class="nx">src</span><span class="p">,</span> <span class="s1">'index.js'</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">path</span><span class="p">:</span> <span class="nx">themePaths</span><span class="p">.</span><span class="nx">output</span><span class="p">,</span>
+            <span class="na">publicPath</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MAGENTO_BACKEND_PUBLIC_PATH</span><span class="p">,</span>
+            <span class="na">filename</span><span class="p">:</span> <span class="s1">'[name].js'</span><span class="p">,</span>
+            <span class="na">chunkFilename</span><span class="p">:</span> <span class="s1">'[name].js'</span>
+        <span class="p">},</span>
+        <span class="na">module</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">rules</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="na">include</span><span class="p">:</span> <span class="p">[</span><span class="nx">themePaths</span><span class="p">.</span><span class="nx">src</span><span class="p">],</span>
+                    <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">js$/</span><span class="p">,</span>
+                    <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="na">loader</span><span class="p">:</span> <span class="s1">'babel-loader'</span><span class="p">,</span>
+                            <span class="na">options</span><span class="p">:</span> <span class="p">{</span> <span class="na">cacheDirectory</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                     <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">css$/</span><span class="p">,</span>
+                     <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+                         <span class="s1">'style-loader'</span><span class="p">,</span>
+                         <span class="p">{</span>
+                             <span class="na">loader</span><span class="p">:</span> <span class="s1">'css-loader'</span><span class="p">,</span>
+                             <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+                                 <span class="na">importLoaders</span><span class="p">:</span> <span class="mi">1</span>
+                             <span class="p">}</span>
+                         <span class="p">}</span>
+                     <span class="p">]</span>
+                 <span class="p">}</span>
+             <span class="p">]</span>
+         <span class="p">},</span>
+         <span class="na">resolve</span><span class="p">:</span> <span class="kr">await</span> <span class="nx">MagentoResolver</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span>
+             <span class="na">paths</span><span class="p">:</span> <span class="p">{</span>
+                 <span class="na">root</span><span class="p">:</span> <span class="nx">__dirname</span>
+             <span class="p">}</span>
+         <span class="p">}),</span>
+         <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+             <span class="k">new</span> <span class="nx">MagentoRootComponentsPlugin</span><span class="p">(),</span>
+             <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">NoEmitOnErrorsPlugin</span><span class="p">(),</span>
+             <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">EnvironmentPlugin</span><span class="p">({</span>
+                 <span class="na">NODE_ENV</span><span class="p">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">phase</span><span class="p">,</span>
+                 <span class="na">SERVICE_WORKER_FILE_NAME</span><span class="p">:</span> <span class="s1">'sw.js'</span>
+             <span class="p">})</span>
+         <span class="p">]</span>
+
+    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This configuration sets up Webpack for your development environment.
+Some important things to note in this configuration:</p>
+
+<ul>
+  <li>How it configures the <code class="highlighter-rouge">MagentoResolver</code> service</li>
+  <li>The inclusion of the <code class="highlighter-rouge">MagentoRootComponent</code> as a plugin</li>
+  <li>The use of <code class="highlighter-rouge">webpack.EnvironmentPlugin</code> to pass environment variables</li>
+</ul>
+
+<h3 id="add-development-mode-configuration">Add development mode configuration</h3>
+
+<p>Add the following development mode configuration before returning the <code class="highlighter-rouge">config</code> object:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">phase</span> <span class="o">===</span> <span class="s2">"development"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">devServer</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">PWADevServer</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span>
+        <span class="na">publicPath</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MAGENTO_BACKEND_PUBLIC_PATH</span><span class="p">,</span>
+        <span class="na">backendDomain</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MAGENTO_BACKEND_DOMAIN</span><span class="p">,</span>
+        <span class="na">serviceWorkerFileName</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SERVICE_WORKER_FILE_NAME</span><span class="p">,</span>
+        <span class="na">paths</span><span class="p">:</span> <span class="nx">themePaths</span><span class="p">,</span>
+        <span class="na">id</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">basename</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">)</span> <span class="c1">// Defaults to theme directory name</span>
+    <span class="p">});</span>
+
+    <span class="c1">// A DevServer generates its own unique output path at startup. It needs</span>
+    <span class="c1">// to assign the main outputPath to this value as well.</span>
+
+    <span class="nx">config</span><span class="p">.</span><span class="nx">output</span><span class="p">.</span><span class="nx">publicPath</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">devServer</span><span class="p">.</span><span class="nx">publicPath</span><span class="p">;</span>
+
+    <span class="nx">config</span><span class="p">.</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+         <span class="k">new</span> <span class="nx">ServiceWorkerPlugin</span><span class="p">({</span>
+             <span class="nx">env</span><span class="p">,</span>
+             <span class="na">paths</span><span class="p">:</span> <span class="nx">themePaths</span><span class="p">,</span>
+             <span class="na">enableServiceWorkerDebugging</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+             <span class="na">serviceWorkerFileName</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SERVICE_WORKER_FILE_NAME</span>
+         <span class="p">})</span>
+     <span class="p">);</span>
+
+     <span class="nx">config</span><span class="p">.</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+         <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">HotModuleReplacementPlugin</span><span class="p">()</span>
+     <span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">'Only "development" mode is currently supported. Please pass "--env.phase development" on the command line.'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This code block does the following:</p>
+
+<ul>
+  <li>Create a <code class="highlighter-rouge">PWADevServer</code> confgiuration object and attach it to the Webpack configuration object.</li>
+  <li>Create a <code class="highlighter-rouge">ServiceWorkerPlugin</code> and attach it to the Webpack configuration object.</li>
+  <li>Add a <code class="highlighter-rouge">webpack.HotModuleReplacementPlugin</code> to enable fast workflow.</li>
+  <li>Configure Webpack to throw an error if you are not in development mode.</li>
+</ul>
+
+<h3 id="add-start-script">Add start script</h3>
+
+<p>Edit the <code class="highlighter-rouge">scripts</code> section of your <code class="highlighter-rouge">package.json file</code> so it looks like the following:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"scripts"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"start"</span> <span class="p">:</span> <span class="s2">"webpack-dev-server --progress --color --env.phase development"</span><span class="p">,</span>
+    <span class="s2">"test"</span><span class="p">:</span> <span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This allows you to start a development server using the <code class="highlighter-rouge">npm start</code> command.
+The <code class="highlighter-rouge">--env.phase development</code> argument sets the <code class="highlighter-rouge">mode</code> property to <code class="highlighter-rouge">development</code> in the configuration function exported from <code class="highlighter-rouge">webpack.config.js</code>.</p>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+When you run npm start for the first time or after a long period of time, PWA Studio may ask for your password.
+This is required to set the local host and SSL trust settings on your system.
+It will not retain broad permissions on your system.</p>
+
+<p>Now that you have created your project configuration files, you can create a <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/">simple peregrine app</a>.</p>
+
+
+			
+		</div>
+		<!-- /.content-wrap -->
+
+		<div class="page-info">
+
+  
+
+  
+  <div class="github-link">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/project-setup/create-configuration-files/index.md" target="_blank">
+      Edit this page on GitHub
+    </a>
+  </div>
+  
+
+  
+  <div class="new-issue">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/project-setup/create-configuration-files/" target="_blank">
+      Give us feedback
+    </a>
+  </div>
+  
+
+</div>
+
+
+	</section>
+	<!-- /.content -->
+
+</div> <!-- /.content-container -->
+
+
+	</div>
+	<!-- /.main-container -->
+
+</div>
+<!-- /#gl-wrapper -->
+
+<!-- footer-->
+<div class="page-footer">
+  <div class="container">
+
+    <div class="copyright-links">
+      <ul class="nav footer-links">
+  <li><a href="http://magento.com/legal/terms/privacy/">Privacy Policy</a></li>
+  <li><a href="http://magento.com/legal/terms/">Terms of Service</a></li>
+  <li><a href="http://magento.com/legal/licensing/">License/Trademark FAQ</a></li>
+</ul>
+
+    </div>
+
+		<div class="copyright-date">&copy; 2018 Magento. All rights reserved.</div>
+
+  </div>
+</div>
+<!-- / #footer -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/pwa-devdocs/builds/js/index.bundle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="/pwa-devdocs/assets/js/app.min.js"></script>
+
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-66243208-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>

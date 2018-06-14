@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Setup | Magento PWA Documentation</title>
+	<meta name="description" content="Everything you need to build a Magento PWA.">
+
+	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
+	<link rel="stylesheet" href="/pwa-devdocs/assets/css/print.css" media="print"/>
+
+	<link rel="stylesheet" href="/pwa-devdocs/builds/css/main.css" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<script>
+  var baseUrl = "/pwa-devdocs";
+  var algolia = {
+    id : "E642SEDTHL",
+    index:  "pwa-devdocs",
+    key:  "d2d0f33ab73e291ef8d88d8b565e754c"
+  };
+</script>
+
+
+
+
+
+<!-- Hotjar Tracking Code for https://magento-research.github.io/pwa-devdocs/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:829386,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66243208-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66243208-1');
+</script>
+
+
+
+
+
+	<link rel="canonical" href="/pwa-devdocs/venia-pwa-concept/setup/">
+
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
+	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="57x57" href="https://magento.com/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="72x72" href="https://magento.com/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="https://magento.com/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="114x114" href="https://magento.com/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="https://magento.com/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="144x144" href="https://magento.com/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="152x152" href="https://magento.com/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://magento.com/apple-touch-icon-180x180.png">
+
+</head>
+<body class="layout-default">
+
+	<header class="site-header">
+
+		<nav class="site-nav">
+
+  <div class="menu-btn">
+    <a id="menu-btn" class="menu-trigger menu-icon" href="#nav-main" aria-haspopup="true" aria-controls="nav-main"></a>
+  </div>
+
+  <div class="nav-container">
+
+    <a class="logo" href="/pwa-devdocs/">
+      <img src="/pwa-devdocs/assets/i/m-logo.svg" alt="">
+      <img src="/pwa-devdocs/assets/i/magento-logo.svg" alt="Magento" class="magento-logo" />
+      <span class="site-logo">PWA Docs</span>
+    </a>
+
+    <div id="nav-main" class="nav-main-wrap" aria-labelledby="menu-btn">
+      
+
+      <!-- Main Navigation -->
+<ul class="nav-main" role="menubar">
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/technologies/overview/">Overview</a>
+  </li>
+  
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/pwa-buildpack/">PWA Buildpack</a>
+  </li>
+  
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/peregrine/">UI Components</a>
+  </li>
+  
+
+  
+  <li class="menuitem current">
+      <a href="/pwa-devdocs/venia-pwa-concept/">Venia Theme</a>
+  </li>
+  
+
+</ul>
+
+    </div>
+
+    <div class="search-btn">
+      <a class="search-trigger search-icon" href="#"></a>
+    </div>
+
+    <form class="quick-search" action="/pwa-devdocs/search/" method="get" novalidate="novalidate">
+      <input type="search" name="q" placeholder="Search" />
+      <a href="#" class="quick-search-close">&times;</a>
+    </form>
+
+  </div>
+</nav><!-- .site-nav -->
+<div class="nav-main-fader"></div>
+
+
+	</header>
+
+	<div class="global-wrapper">
+
+		<div class="message-banner">
+  This is the pre-release documentation site for the Magento PWA project. To provide feedback or contribute content, check out the <a href="https://github.com/magento-research/pwa-devdocs">pwa-devdocs</a> repository.
+</div>
+
+
+
+		<div class="main-container">
+			<a id="main-content"></a>
+
+
+<div class="content-container">
+
+	<!-- sidebar -->
+<aside class="sidebar">
+    <a href="#" class="toc-toggler">Table of Contents</a>
+    <div class="sidebar-wrapper">
+
+      
+
+
+
+
+
+<div class="menu-section">
+    <div class="toc-entry"><h4 class="guide-title">Venia Theme (Concept)</h4></div>
+
+    <ul class="table-of-contents">
+    
+        <li >
+            
+            <a href="/pwa-devdocs/venia-pwa-concept/" class=" ">Overview</a>
+            
+
+            
+        </li>
+    
+        <li class="active">
+            
+            <a href="/pwa-devdocs/venia-pwa-concept/setup/" class=" ">Setup</a>
+            
+
+            
+        </li>
+    
+    </ul>
+</div>
+
+
+    </div>
+</aside>
+<!-- /sidebar -->
+
+
+	<section class="content">
+		<div class="content-wrap">
+			<!-- page-header -->
+<section class="page-intro">
+	<nav class="breadcrumbs">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/pwa-devdocs/">Home</a></li>
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/venia-pwa-concept/">
+        Venia Theme (Concept)
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item active">
+      <a href="/pwa-devdocs/venia-pwa-concept/setup/">
+        Setup
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  </ol>
+</nav>
+
+	<h1 class="page-heading">Setup</h1>
+</section>
+
+			<p>Follow the instructions on this page to setup the <a href="https://github.com/magento-research/pwa-studio/tree/master/packages/venia-concept">Venia PWA concept theme</a> for Magento 2.
+At the end of this tutorial, you will have the Venia theme project installed in Magento 2 and a local development environment set up.</p>
+
+<p>If you experience problems with the project setup, see <a href="/pwa-devdocs/pwa-buildpack/troubleshooting/">Troubleshooting</a> in the PWA Buildpack section.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+  <li>A local development instance of Magento 2.3 or above.</li>
+  <li><a href="https://www.npmjs.com/">Node Package Manager</a> (NPM)</li>
+  <li><a href="https://nodejs.org/en/">NodeJS 8.x LTS</a></li>
+</ul>
+
+<h2 id="clone-repository">Clone repository</h2>
+
+<p>Clone the <a href="https://github.com/magento-research/pwa-studio">PWA Studio</a> repository into your development environment.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:magento-research/pwa-studio.git
+</code></pre></div></div>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+For this tutorial, the project location is the <code class="highlighter-rouge">/Users/magedev/pwa-studio</code> directory.</p>
+
+<h3 id="vagrant-box-instructions">Vagrant Box instructions</h3>
+
+<p>If you are using a virtual machine, make sure it can access the new project directory and runs Magento 2.3.</p>
+
+<p>For example, if you are using the <a href="https://github.com/paliarush/magento2-vagrant-for-developers">Vagrant Box for Magento 2 developers</a>, use the following steps to add a synced folder to the virtual machine and configure it to use Magento 2.3.</p>
+
+<details>
+  <summary>Show steps</summary>
+
+  <p class="bs-callout bs-callout-tip"><strong>Tip:</strong>
+If you clone the PWA Studio project repo into the <code class="highlighter-rouge">magento2ce</code> directory of the Vagrant project, the project folder will already be visible to the Vagrant box and you can skip ahead to Step 3.</p>
+
+  <ol>
+    <li>In the Vagrant box project directory, open the <code class="highlighter-rouge">Vagrantfile</code> and locate the following line:
+      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>config.vm.synced_folder '.', '/vagrant', disabled: true
+</code></pre></div>      </div>
+    </li>
+    <li>Above this line, add the following entry (substituting the project directory path with your own):
+      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>config.vm.synced_folder '/Users/magedev/pwa-studio', '/Users/magedev/pwa-studio', type: "nfs", create: true
+</code></pre></div>      </div>
+    </li>
+    <li>If your environment does not already use Magento 2.3, copy <code class="highlighter-rouge">etc/config.yaml.dist</code> as <code class="highlighter-rouge">etc/config.yml</code> and update the following line:
+      <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">ce</span><span class="pi">:</span> <span class="s2">"</span><span class="s">git@github.com:magento/magento2.git"</span>
+</code></pre></div>      </div>
+      <p>to</p>
+      <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">ce</span><span class="pi">:</span> <span class="s2">"</span><span class="s">git@github.com:magento/magento2.git::2.3-develop"</span>
+</code></pre></div>      </div>
+    </li>
+    <li>In that same file, update the PHP version to 7.1 by updating the following line:
+      <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">php_version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7.0"</span>
+</code></pre></div>      </div>
+      <p>to</p>
+      <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">php_version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">7.1"</span>
+</code></pre></div>      </div>
+    </li>
+    <li>Init or reset the Vagrant environment:
+      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash init-project
+</code></pre></div>      </div>
+      <p>OR</p>
+      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash init_project.sh -f
+</code></pre></div>      </div>
+    </li>
+  </ol>
+</details>
+
+<h2 id="install-pwa-studio-dependencies">Install PWA Studio dependencies</h2>
+
+<p>In the PWA Studio project’s root directory, run the following command to install the project dependencies:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span>
+</code></pre></div></div>
+
+<h2 id="link-module">Link module</h2>
+
+<p>Navigate to your Magento installation’s <code class="highlighter-rouge">app/code/Magento</code> directory and create a <code class="highlighter-rouge">Pwa</code> symlink folder linking to the project’s <code class="highlighter-rouge">module</code> directory.</p>
+
+<p><strong>Example command:</strong></p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-s</span> /Users/magedev/pwa-studio/packages/pwa-module Pwa
+</code></pre></div></div>
+
+<h3 id="enable-and-install">Enable and install</h3>
+
+<p>Navigate to your Magento installation’s root director and run the following command to enable the module:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/magento module:enable Magento_Pwa
+</code></pre></div></div>
+
+<p>Install the module using the following command:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/magento setup:upgrade
+</code></pre></div></div>
+
+<h2 id="link-theme-directory">Link theme directory</h2>
+
+<p>Navigate to your Magento installation’s <code class="highlighter-rouge">app/design/frontend/Magento</code> directory and create a <code class="highlighter-rouge">venia</code> symlink folder linking to the project’s <code class="highlighter-rouge">theme-frontend-venia</code> directory.</p>
+
+<p><strong>Example command:</strong></p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-s</span> /Users/magedev/pwa-studio/packages/venia-concept venia
+</code></pre></div></div>
+
+<h2 id="activate-the-venia-theme">Activate the Venia theme</h2>
+
+<p>Browse to the Admin section of your Magento store and configure it to use the <strong>Magento Venia</strong> theme.
+You can find this configuration using the <strong>Configuration</strong> link in the <strong>Content</strong> tab.</p>
+
+<h2 id="set-environment-variables">Set environment variables</h2>
+
+<p>Under the Venia project’s <code class="highlighter-rouge">theme-frontend-venia</code> directory, copy <code class="highlighter-rouge">.env.dist</code> into a new <code class="highlighter-rouge">.env</code> file and update the variables with the URL to your Magento development store.</p>
+
+<h2 id="start-the-development-server">Start the development server</h2>
+
+<p>Use the following command to start the development server:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm start
+</code></pre></div></div>
+
+<p>After the development server is up and running, look for a similar line in the terminal output (the port will differ for your instance):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project is running at https://magento-venia.local.pwadev:8000/
+</code></pre></div></div>
+
+<p>This is the new address for your PWA frontend.
+You can still use the old address to access the Admin section of Magento, but 
+for PWA development on the frontend, use this new address.</p>
+
+<p class="bs-callout bs-callout-info"><strong>Note:</strong>
+This project is still in development and only supports the <code class="highlighter-rouge">/home</code> route.</p>
+
+<p>Congratulations! You have set up your development environment for the Venia theme project.</p>
+
+
+			
+		</div>
+		<!-- /.content-wrap -->
+
+		<div class="page-info">
+
+  
+
+  
+  <div class="github-link">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/venia-pwa-concept/setup/index.md" target="_blank">
+      Edit this page on GitHub
+    </a>
+  </div>
+  
+
+  
+  <div class="new-issue">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /venia-pwa-concept/setup/" target="_blank">
+      Give us feedback
+    </a>
+  </div>
+  
+
+</div>
+
+
+	</section>
+	<!-- /.content -->
+
+</div> <!-- /.content-container -->
+
+
+	</div>
+	<!-- /.main-container -->
+
+</div>
+<!-- /#gl-wrapper -->
+
+<!-- footer-->
+<div class="page-footer">
+  <div class="container">
+
+    <div class="copyright-links">
+      <ul class="nav footer-links">
+  <li><a href="http://magento.com/legal/terms/privacy/">Privacy Policy</a></li>
+  <li><a href="http://magento.com/legal/terms/">Terms of Service</a></li>
+  <li><a href="http://magento.com/legal/licensing/">License/Trademark FAQ</a></li>
+</ul>
+
+    </div>
+
+		<div class="copyright-date">&copy; 2018 Magento. All rights reserved.</div>
+
+  </div>
+</div>
+<!-- / #footer -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/pwa-devdocs/builds/js/index.bundle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="/pwa-devdocs/assets/js/app.min.js"></script>
+
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-66243208-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>

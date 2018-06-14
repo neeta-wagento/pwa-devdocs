@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Create the initial theme files | Magento PWA Documentation</title>
+	<meta name="description" content="Everything you need to build a Magento PWA.">
+
+	<link rel="stylesheet" href="/pwa-devdocs/assets/css/app.css" />
+	<link rel="stylesheet" href="/pwa-devdocs/assets/css/print.css" media="print"/>
+
+	<link rel="stylesheet" href="/pwa-devdocs/builds/css/main.css" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<script>
+  var baseUrl = "/pwa-devdocs";
+  var algolia = {
+    id : "E642SEDTHL",
+    index:  "pwa-devdocs",
+    key:  "d2d0f33ab73e291ef8d88d8b565e754c"
+  };
+</script>
+
+
+
+
+
+<!-- Hotjar Tracking Code for https://magento-research.github.io/pwa-devdocs/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:829386,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66243208-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66243208-1');
+</script>
+
+
+
+
+
+	<link rel="canonical" href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/">
+
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
+	<link rel="apple-touch-icon" type="image/png" href="https://magento.com/apple-touch-icon.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="57x57" href="https://magento.com/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="72x72" href="https://magento.com/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="https://magento.com/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="114x114" href="https://magento.com/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="https://magento.com/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="144x144" href="https://magento.com/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="152x152" href="https://magento.com/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://magento.com/apple-touch-icon-180x180.png">
+
+</head>
+<body class="layout-default">
+
+	<header class="site-header">
+
+		<nav class="site-nav">
+
+  <div class="menu-btn">
+    <a id="menu-btn" class="menu-trigger menu-icon" href="#nav-main" aria-haspopup="true" aria-controls="nav-main"></a>
+  </div>
+
+  <div class="nav-container">
+
+    <a class="logo" href="/pwa-devdocs/">
+      <img src="/pwa-devdocs/assets/i/m-logo.svg" alt="">
+      <img src="/pwa-devdocs/assets/i/magento-logo.svg" alt="Magento" class="magento-logo" />
+      <span class="site-logo">PWA Docs</span>
+    </a>
+
+    <div id="nav-main" class="nav-main-wrap" aria-labelledby="menu-btn">
+      
+
+      <!-- Main Navigation -->
+<ul class="nav-main" role="menubar">
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/technologies/overview/">Overview</a>
+  </li>
+  
+
+  
+  <li class="menuitem current">
+      <a href="/pwa-devdocs/pwa-buildpack/">PWA Buildpack</a>
+  </li>
+  
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/peregrine/">UI Components</a>
+  </li>
+  
+
+  
+  <li class="menuitem ">
+      <a href="/pwa-devdocs/venia-pwa-concept/">Venia Theme</a>
+  </li>
+  
+
+</ul>
+
+    </div>
+
+    <div class="search-btn">
+      <a class="search-trigger search-icon" href="#"></a>
+    </div>
+
+    <form class="quick-search" action="/pwa-devdocs/search/" method="get" novalidate="novalidate">
+      <input type="search" name="q" placeholder="Search" />
+      <a href="#" class="quick-search-close">&times;</a>
+    </form>
+
+  </div>
+</nav><!-- .site-nav -->
+<div class="nav-main-fader"></div>
+
+
+	</header>
+
+	<div class="global-wrapper">
+
+		<div class="message-banner">
+  This is the pre-release documentation site for the Magento PWA project. To provide feedback or contribute content, check out the <a href="https://github.com/magento-research/pwa-devdocs">pwa-devdocs</a> repository.
+</div>
+
+
+
+		<div class="main-container">
+			<a id="main-content"></a>
+
+
+<div class="content-container">
+
+	<!-- sidebar -->
+<aside class="sidebar">
+    <a href="#" class="toc-toggler">Table of Contents</a>
+    <div class="sidebar-wrapper">
+
+      
+
+
+
+
+
+<div class="menu-section">
+    <div class="toc-entry"><h4 class="guide-title">PWA Buildpack</h4></div>
+
+    <ul class="table-of-contents">
+    
+        <li >
+            
+            <a href="/pwa-devdocs/pwa-buildpack/" class=" ">Overview</a>
+            
+
+            
+        </li>
+    
+        <li >
+            
+            <a href="/pwa-devdocs/pwa-buildpack/project-setup/" class=" parent">Project setup tutorial</a>
+            
+
+            
+            <ul>
+            
+                <li class="active">
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/" class=" ">Create initial theme files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/" class=" ">Install project dependencies</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/link-project/" class=" ">Link project to the Magento backend</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-configuration-files/" class=" parent">Create configuration files</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-simple-peregrine-app/" class=" ">Create a simple peregrine app</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li >
+            
+            <span>Tools reference</span>
+            
+
+            
+            <ul>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/layout-loader/" class=" ">magento-layout-loader</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/magento-resolver/" class=" ">MagentoResolver</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/root-components-plugin/" class=" ">MagentoRootComponentsPlugin</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/object-types/" class=" ">Object Types</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/pwa-dev-server/" class=" ">PWADevServer</a>
+                    
+                </li>
+            
+                <li >
+                    
+                    <a href="/pwa-devdocs/pwa-buildpack/reference/serviceworker-plugin/" class=" ">ServiceWorkerPlugin</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li >
+            
+            <a href="/pwa-devdocs/pwa-buildpack/troubleshooting/" class=" ">Troubleshooting</a>
+            
+
+            
+        </li>
+    
+    </ul>
+</div>
+
+
+    </div>
+</aside>
+<!-- /sidebar -->
+
+
+	<section class="content">
+		<div class="content-wrap">
+			<!-- page-header -->
+<section class="page-intro">
+	<nav class="breadcrumbs">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/pwa-devdocs/">Home</a></li>
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/pwa-buildpack/">
+        PWA Buildpack
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item ">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/">
+        Project setup tutorial
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+    <li class="breadcrumb-item active">
+      <a href="/pwa-devdocs/pwa-buildpack/project-setup/create-theme-files/">
+        Create the initial theme files
+      </a>
+    </li>
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+  </ol>
+</nav>
+
+	<h1 class="page-heading">Create the initial theme files</h1>
+</section>
+
+			<p>Unlike regular <a href="http://devdocs.magento.com/guides/v2.3/frontend-dev-guide/themes/theme-create.html">Magento Themes</a>, Magento Progressive Web Apps are built on top of the <a href="https://github.com/magento-research/theme-frontend-pwa">PWA base theme</a>.
+They are also <em>decoupled</em> from the backing Magento stores, so they no longer need to be developed under <code class="highlighter-rouge">app/design/frontend</code>.</p>
+
+<p>It is still possible to develop your project under <code class="highlighter-rouge">app/design/frontend</code>, but 
+the recommended approach is to use Composer to manage the connection between your project and the backend store.</p>
+
+<p>In this part of the <a href="/pwa-devdocs/pwa-buildpack/project-setup/">Project setup tutorial</a>, you will create the initial files and directories for a Magento PWA theme using the recommended Composer approach.</p>
+
+<h2 id="create-theme-directory-and-files">Create theme directory and files</h2>
+
+<ol>
+  <li>
+    <p>For this tutorial, <strong>orange-theme</strong> will be the name of the theme directory.
+Run the following command to create this directory and <code class="highlighter-rouge">cd</code> into it:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>orange-theme <span class="o">&amp;&amp;</span> <span class="nb">cd </span>orange-theme
+</code></pre></div>    </div>
+
+    <p class="bs-callout bs-callout-info"><strong>Note:</strong>
+Your theme directory does not need to be created inside a Magento application directory.</p>
+  </li>
+  <li>Create a <code class="highlighter-rouge">media</code> directory and place a <code class="highlighter-rouge">preview.jpg</code> image file inside.
+ This image is used as the preview image for your theme.</li>
+  <li>
+    <p>Create a <code class="highlighter-rouge">theme.xml</code> file.</p>
+
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+
+ <span class="nt">&lt;theme</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">"urn:magento:framework:Config/etc/theme.xsd"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;title&gt;</span>Orange Theme<span class="nt">&lt;/title&gt;</span>
+     <span class="nt">&lt;parent&gt;</span>Magento/pwa<span class="nt">&lt;/parent&gt;</span>
+     <span class="nt">&lt;media&gt;</span>
+         <span class="nt">&lt;preview_image&gt;</span>media/preview.jpg<span class="nt">&lt;/preview_image&gt;</span>
+     <span class="nt">&lt;/media&gt;</span>
+ <span class="nt">&lt;/theme&gt;</span>
+</code></pre></div>    </div>
+
+    <p>This file provides the name of theme, the required PWA parent theme, and the location of the preview image to Magento.</p>
+  </li>
+  <li>
+    <p>Create a <code class="highlighter-rouge">composer.json</code> file.</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"orangecompany/orange-theme"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The inimitable Orange Theme."</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"php"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~7.1.0|~7.2.0"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"magento/framework"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.3.*"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"magento-research/theme-frontend-pwa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"magento2-theme"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OSL-3.0"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"autoload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"registration.php"</span><span class="p">]</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <p>This file makes your theme a composer package for easy distribution in the <a href="https://marketplace.magento.com/">Magento Marketplace</a>.</p>
+  </li>
+  <li>
+    <p>Create a <code class="highlighter-rouge">registration.php</code> file to register your theme with Magento.</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">&lt;?php</span>
+
+ <span class="k">use</span> <span class="nx">\Magento\Framework\Component\ComponentRegistrar</span><span class="p">;</span>
+
+ <span class="nx">ComponentRegistrar</span><span class="o">::</span><span class="na">register</span><span class="p">(</span>
+     <span class="nx">ComponentRegistrar</span><span class="o">::</span><span class="na">THEME</span><span class="p">,</span>
+     <span class="s1">'frontend/OrangeCompany/orange-theme'</span><span class="p">,</span>
+     <span class="nx">__DIR__</span>
+ <span class="p">);</span>
+
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create directories for your theme’s static files using the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir</span> <span class="nt">-p</span> web/css/source web/fonts web/images web/js
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Now that you have the basic directory structure for your theme project, you need to <a href="/pwa-devdocs/pwa-buildpack/project-setup/install-dependencies/">install project dependencies</a>.</p>
+
+
+			
+		</div>
+		<!-- /.content-wrap -->
+
+		<div class="page-info">
+
+  
+
+  
+  <div class="github-link">
+    <a class="improve-page" href="https://github.com/magento-research/pwa-devdocs/tree/master/src/pwa-buildpack/project-setup/create-theme-files/index.md" target="_blank">
+      Edit this page on GitHub
+    </a>
+  </div>
+  
+
+  
+  <div class="new-issue">
+    <a href="https://github.com/magento-research/pwa-devdocs/issues/new?title=Feedback on page: /pwa-buildpack/project-setup/create-theme-files/" target="_blank">
+      Give us feedback
+    </a>
+  </div>
+  
+
+</div>
+
+
+	</section>
+	<!-- /.content -->
+
+</div> <!-- /.content-container -->
+
+
+	</div>
+	<!-- /.main-container -->
+
+</div>
+<!-- /#gl-wrapper -->
+
+<!-- footer-->
+<div class="page-footer">
+  <div class="container">
+
+    <div class="copyright-links">
+      <ul class="nav footer-links">
+  <li><a href="http://magento.com/legal/terms/privacy/">Privacy Policy</a></li>
+  <li><a href="http://magento.com/legal/terms/">Terms of Service</a></li>
+  <li><a href="http://magento.com/legal/licensing/">License/Trademark FAQ</a></li>
+</ul>
+
+    </div>
+
+		<div class="copyright-date">&copy; 2018 Magento. All rights reserved.</div>
+
+  </div>
+</div>
+<!-- / #footer -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/pwa-devdocs/builds/js/index.bundle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="/pwa-devdocs/assets/js/app.min.js"></script>
+
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-66243208-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>
